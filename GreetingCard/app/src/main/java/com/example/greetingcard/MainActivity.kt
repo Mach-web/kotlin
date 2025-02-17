@@ -24,11 +24,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             GreetingCardTheme {
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
+//                    modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
                     Greeting(
                         name = "Anderson Macharia Kinyua!!!",
+                        modifier = Modifier.padding(vertical = 55.dp, horizontal = 20.dp)
                     )
                 }
                 }
@@ -42,7 +43,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Surface(color = Color.Cyan){
         Text(
             text = "Hi, my name is $name!",
-            modifier = Modifier.padding(vertical = 35.dp, horizontal = 20.dp)
+            modifier = modifier
         )
     }
 }
