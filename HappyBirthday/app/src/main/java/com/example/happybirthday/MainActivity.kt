@@ -1,5 +1,6 @@
 package com.example.happybirthday
 
+import android.graphics.Color
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -15,6 +16,7 @@ import androidx.compose.runtime.movableContentOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
+import androidx.compose.ui.unit.sp
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,9 +26,10 @@ class MainActivity : ComponentActivity() {
         setContent {
             HappyBirthdayTheme {
                 Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background) {
-                    GreetingText("Happy Birthday Anderson Macharia",
-                    Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)))
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    GreetingText(text = "Happy Birthday Anderson Macharia",
+                    modifier = Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)))
                 }
 //                Scaffold(modifier = Modifier.fillMaxSize()) {
 //                    innerPadding -> HappyBirthday(
@@ -40,10 +43,12 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText(text: String = "Happy Birthday MachTechie!!!", modifier: Modifier = Modifier){
+fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday MachTechie!!!"){
     Text(
         text = text,
-        modifier = modifier
+        modifier = modifier,
+        fontSize = 100.sp,
+        lineHeight = 100.sp
     )
 }
 
@@ -54,6 +59,6 @@ fun GreetingText(text: String = "Happy Birthday MachTechie!!!", modifier: Modifi
 fun HappyBirthdayPreview() {
     HappyBirthdayTheme {
 //        HappyBirthday("MachTechie")
-        GreetingText("Happy Birthday Anderson Macharia")
+        GreetingText(text = "Happy Birthday Anderson Macharia")
     }
 }
