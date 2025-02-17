@@ -1,0 +1,45 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=733558
+    // for the documentation about the tasks.json format
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "echo",
+            "type": "shell",
+            "command": "echo Hello"
+        }
+    ]
+}
+// {
+//     "version": "2.0.0",
+//     "tasks": [
+//         {
+//             "label": "Kotlin Run/Restart",
+//             "type": "shell",
+//             "command": "powershell",
+//             "args": [
+//                 "-Command",
+//                 "$projectName = (Get-Item $PWD).Name.ToLower(); ./gradlew assembleDebug; ./gradlew installDebug; adb shell am start -n com.example.$projectName/.MainActivity"
+//             ],
+//             "problemMatcher": [],
+//             "group": {
+//                 "kind": "build",
+//                 "isDefault": true
+//             }
+//         },
+//         {
+//             "label": "Kotlin Clean Build",
+//             "type": "shell",
+//             "command": "powershell",
+//             "args": [
+//                 "-Command",
+//                 "$projectName = (Get-Item $PWD).Name.ToLower(); ./gradlew clean build; ./gradlew installDebug; adb shell am start -n com.example.$projectName/.MainActivity"
+//             ],
+//             "problemMatcher": [],
+//             "group": {
+//                 "kind": "build",
+//                 "isDefault": true
+//             }
+//         }
+//     ]
+// }
