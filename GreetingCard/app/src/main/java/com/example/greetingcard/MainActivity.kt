@@ -13,6 +13,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.dp
 import com.example.greetingcard.ui.theme.GreetingCardTheme
 
 class MainActivity : ComponentActivity() {
@@ -46,12 +47,12 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     GreetingCardTheme {
-        Scaffold(modifier = Modifier.fillMaxSize()){
-            innerPadding -> Greeting(
+//        Scaffold(modifier = Modifier.fillMaxSize()) {
+            Greeting(
                 name = "MachTechie!!!",
-                modifier = Modifier.padding(innerPadding)
+                modifier = Modifier.padding(vertical = 35.dp, horizontal = 20.dp)
             )
-        }
+//        }
 
     }
 }
