@@ -14,6 +14,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.movableContentOf
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
+import androidx.compose.ui.unit.Dp
 import com.example.happybirthday.ui.theme.HappyBirthdayTheme
 
 class MainActivity : ComponentActivity() {
@@ -24,7 +25,8 @@ class MainActivity : ComponentActivity() {
             HappyBirthdayTheme {
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background) {
-                    GreetingText("Happy Birthday Anderson Macharia")
+                    GreetingText("Happy Birthday Anderson Macharia",
+                    Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)))
                 }
 //                Scaffold(modifier = Modifier.fillMaxSize()) {
 //                    innerPadding -> HappyBirthday(
