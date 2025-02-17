@@ -5,6 +5,8 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.MaterialTheme
@@ -28,8 +30,9 @@ class MainActivity : ComponentActivity() {
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(text = "Happy Birthday Anderson Macharia",
-                    modifier = Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)))
+                    GreetingText(text = "Happy Birthday Mash",
+                    modifier = Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)),
+                        from = "from Vee")
                 }
 //                Scaffold(modifier = Modifier.fillMaxSize()) {
 //                    innerPadding -> HappyBirthday(
@@ -43,13 +46,21 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday MachTechie!!!"){
-    Text(
-        text = text,
-        modifier = modifier,
-        fontSize = 100.sp,
-        lineHeight = 100.sp
-    )
+fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday MachTechie!!!", from: String) {
+    Column {
+        Text(
+            text = text,
+            modifier = modifier,
+            fontSize = 100.sp,
+            lineHeight = 100.sp
+        )
+        Text(
+            text = from,
+            fontSize = 100.sp,
+            modifier = modifier,
+            lineHeight = 100.sp
+        )
+    }
 }
 
 
@@ -59,6 +70,6 @@ fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday 
 fun HappyBirthdayPreview() {
     HappyBirthdayTheme {
 //        HappyBirthday("MachTechie")
-        GreetingText(text = "Happy Birthday Anderson Macharia")
+        GreetingText(text = "Happy Birthday Anderson Macharia", from = "from Vee")
     }
 }
