@@ -6,6 +6,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
@@ -21,13 +22,16 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-//            GreetingCardTheme {
-//                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-//                     Greeting(
-//                         name = "Anderson Macharia!!",
-//                         modifier = Modifier.padding(innerPadding)
-//                     )}
-            GreetingPreview()
+            GreetingCardTheme {
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colorScheme.background
+                ) {
+                    Greeting(
+                        name = "Anderson Macharia Kinyua!!!",
+                    )
+                }
+                }
             }
         }
     }
@@ -38,7 +42,7 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
     Surface(color = Color.Cyan){
         Text(
             text = "Hi, my name is $name!",
-            modifier = modifier
+            modifier = Modifier.padding(vertical = 35.dp, horizontal = 20.dp)
         )
     }
 }
@@ -47,12 +51,8 @@ fun Greeting(name: String, modifier: Modifier = Modifier) {
 @Composable
 fun GreetingPreview() {
     GreetingCardTheme {
-//        Scaffold(modifier = Modifier.fillMaxSize()) {
             Greeting(
                 name = "MachTechie!!!",
-                modifier = Modifier.padding(vertical = 35.dp, horizontal = 20.dp)
             )
-//        }
-
     }
 }
