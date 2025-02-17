@@ -7,9 +7,11 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.tooling.preview.Preview
 import com.example.greetingcard.ui.theme.GreetingCardTheme
 
@@ -18,31 +20,38 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
-            GreetingCardTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    Greeting( 
-                        name = "Andeson Macharia!!\nTask Is Running!!!",
-                        modifier = Modifier.padding(innerPadding)
-                    )
-                    GreetingPreview()
-                }
+//            GreetingCardTheme {
+//                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+//                     Greeting(
+//                         name = "Anderson Macharia!!",
+//                         modifier = Modifier.padding(innerPadding)
+//                     )}
+            GreetingPreview()
             }
         }
     }
-}
+//}
 
 @Composable
 fun Greeting(name: String, modifier: Modifier = Modifier) {
-    Text(
-        text = "Hi, my name is $name!",
-        modifier = modifier
-    )
+    Surface(color = Color.Cyan){
+        Text(
+            text = "Hi, my name is $name!",
+            modifier = modifier
+        )
+    }
 }
 
 @Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     GreetingCardTheme {
-        Greeting("MachTechie")
+        Scaffold(modifier = Modifier.fillMaxSize()){
+            innerPadding -> Greeting(
+                name = "MachTechie!!!",
+                modifier = Modifier.padding(innerPadding)
+            )
+        }
+
     }
 }
