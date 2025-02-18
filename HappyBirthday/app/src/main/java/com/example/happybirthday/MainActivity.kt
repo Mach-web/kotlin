@@ -7,6 +7,7 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -37,7 +38,7 @@ class MainActivity : ComponentActivity() {
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingText(text = "Happy Birthday Mash",
+                    GreetingImage(text = "Happy Birthday Mash",
                     modifier = Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)),
                         from = "from Vee!!!")
                 }
@@ -53,9 +54,15 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday MachTechie!!!", from: String) {
+fun GreetingImage(modifier: Modifier = Modifier, text: String = "Happy Birthday MachTechie!!!", from: String){
     var image = painterResource(R.drawable.androidparty)
-    Image(painter = image, contentDescription = "Birthday Image")
+    Box(){
+        Image(image, null)
+        GreetingText(text = text, from = from, modifier = Modifier.fillMaxSize().padding(8.dp))
+    }
+}
+@Composable
+fun GreetingText( modifier: Modifier = Modifier, text: String, from: String) {
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = modifier.padding(8.dp)
@@ -70,7 +77,9 @@ fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday 
         Text(
             text = from,
             fontSize = 36.sp,
-            modifier = Modifier.padding(16.dp).align(alignment = Alignment.End),
+            modifier = Modifier
+                .padding(16.dp)
+                .align(alignment = Alignment.End),
             lineHeight = 100.sp,
             textAlign = TextAlign.Center,
             color = Color.Blue
