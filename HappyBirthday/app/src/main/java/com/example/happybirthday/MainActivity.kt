@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -41,9 +42,9 @@ class MainActivity : ComponentActivity() {
         setContent {
             HappyBirthdayTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) {
-                        innerPadding -> LearnTogether(
-                    modifier = Modifier.padding(innerPadding)
-                )
+                        innerPadding ->
+                    ComposeQuadrant(modifier = Modifier.padding(innerPadding))
+//                    LearnTogether(modifier = Modifier.padding(innerPadding))
 //                    Surface(
 //                        modifier = Modifier.fillMaxSize(),
 //                        color = MaterialTheme.colorScheme.background
@@ -64,18 +65,64 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun ComposeQuadrant(modifier: Modifier){
-
+    Column (
+        verticalArrangement = Arrangement.SpaceEvenly,
+        modifier = Modifier.fillMaxSize()
+    ) {
+        Row (
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            modifier = Modifier.weight(1f)
+        ){
+            Quadrant(
+                "Text composable",
+                "Displays text and follows the recommended Material Design guidelines.",
+                Color(0xFFEADDFF),
+                modifier = Modifier.weight(1f)
+            )
+            Quadrant(
+                "Image composable",
+                "Creates a composable that lays out and draws a given Painter class object.",
+                Color(0xFFD0BCFF),
+                modifier = Modifier.weight(1f)
+            )
+        }
+        Row (
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            modifier = Modifier.weight(1f)
+        ){
+            Quadrant(
+                "Row composable",
+                "A layout composable that places its children in a horizontal sequence.",
+                Color(0xFFB69DF8),
+                modifier = Modifier.weight(1f)
+            )
+            Quadrant(
+                "Column composable",
+                "A layout composable that places its children in a vertical sequence.",
+                Color(0xFFF6EDFF),
+                modifier = Modifier.weight(1f)
+            )
+        }
+    }
 }
 
 @Composable
-fun Quadrant(title: String, description: String, color: Color){
-    Column {
+fun Quadrant(title: String, description: String, color: Color, modifier: Modifier){
+    Column (
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally,
+        modifier = modifier.fillMaxSize().background(color = color).padding(all = 8.dp)
+
+    ){
         Text(
             text = title,
-            fontWeight = FontWeight.Bold
+            fontWeight = FontWeight.Bold,
+            color = Color.Black
         )
         Text(
-            text = desc
+            text = description,
+            textAlign = TextAlign.Justify,
+            color = Color.Black
         )
     }
 }
