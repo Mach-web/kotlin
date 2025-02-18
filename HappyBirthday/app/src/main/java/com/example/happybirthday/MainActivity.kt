@@ -1,6 +1,7 @@
 package com.example.happybirthday
 
 import android.os.Bundle
+import android.os.ParcelFileDescriptor
 import android.provider.CalendarContract.Colors
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
@@ -25,6 +26,7 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.TextStyle
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -38,31 +40,49 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HappyBirthdayTheme {
-
-                    Surface(
-                        modifier = Modifier.fillMaxSize(),
-                        color = MaterialTheme.colorScheme.background
-                    ) {
+                Scaffold(modifier = Modifier.fillMaxSize()) {
+                        innerPadding -> LearnTogether(
+                    modifier = Modifier.padding(innerPadding)
+                )
+//                    Surface(
+//                        modifier = Modifier.fillMaxSize(),
+//                        color = MaterialTheme.colorScheme.background
+//                    ) {
 //                    GreetingImage(text = stringResource(R.string.happy_birthday_text),
 //                    modifier = Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)),
 //                        from = stringResource(R.string.signature_text)
 //                    )
-                        LearnTogether()
+
+//                        TaskCompleted()
                     }
-//                Scaffold(modifier = Modifier.fillMaxSize()) {
-//                    innerPadding -> HappyBirthday(
-//                        name = "Android",
-//                        modifier = Modifier.padding(innerPadding)
-////                    )
-//                }
+
+                }
                 }
             }
         }
-    }
 
 
 @Composable
-fun LearnTogether(header: String = stringResource(R.string.header_text)){
+fun ComposeQuadrant(modifier: Modifier){
+
+}
+
+@Composable
+fun Quadrant(title: String, description: String, color: Color){
+    Column {
+        Text(
+            text = title,
+            fontWeight = FontWeight.Bold
+        )
+        Text(
+            text = desc
+        )
+    }
+}
+
+
+@Composable
+fun LearnTogether(modifier: Modifier, header: String = stringResource(R.string.header_text)){
     Column {
         var image = painterResource(R.drawable.bg_compose_background)
         Image(image,  contentDescription = "Splash Image", contentScale = ContentScale.FillWidth)
@@ -90,8 +110,21 @@ fun LearnTogether(header: String = stringResource(R.string.header_text)){
 @Composable
 fun TaskCompleted(){
     Column (
-        verticalArrangement = Arrangement.Center
-    ){  }
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
+    ){
+        var image = painterResource(R.drawable.ic_task_completed)
+        Image(image, contentDescription = "Tick image")
+        Text(
+            text = "All tasks completed",
+            style = TextStyle(fontWeight = FontWeight.Bold),
+            modifier = Modifier.padding(top = 24.dp, bottom = 8.dp)
+        )
+        Text(
+            text = "Nice work!",
+            fontSize = 16.sp
+        )
+    }
 }
 
 @Composable
