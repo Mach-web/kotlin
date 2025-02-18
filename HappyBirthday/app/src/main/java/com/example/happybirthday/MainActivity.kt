@@ -24,6 +24,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.TextStyle
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -37,23 +38,60 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             HappyBirthdayTheme {
-                Surface(modifier = Modifier.fillMaxSize(),
-                    color = MaterialTheme.colorScheme.background
-                ) {
-                    GreetingImage(text = stringResource(R.string.happy_birthday_text),
-                    modifier = Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)),
-                        from = stringResource(R.string.signature_text)
-                    )
-                }
+
+                    Surface(
+                        modifier = Modifier.fillMaxSize(),
+                        color = MaterialTheme.colorScheme.background
+                    ) {
+//                    GreetingImage(text = stringResource(R.string.happy_birthday_text),
+//                    modifier = Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)),
+//                        from = stringResource(R.string.signature_text)
+//                    )
+                        LearnTogether()
+                    }
 //                Scaffold(modifier = Modifier.fillMaxSize()) {
 //                    innerPadding -> HappyBirthday(
 //                        name = "Android",
 //                        modifier = Modifier.padding(innerPadding)
 ////                    )
 //                }
+                }
             }
         }
     }
+
+
+@Composable
+fun LearnTogether(header: String = stringResource(R.string.header_text)){
+    Column {
+        var image = painterResource(R.drawable.bg_compose_background)
+        Image(image,  contentDescription = "Splash Image", contentScale = ContentScale.FillWidth)
+        Text(
+            text = header,
+            fontSize = 24.sp,
+            modifier = Modifier.padding(all = 16.dp)
+        )
+        Text(
+            text = stringResource(R.string.introduction),
+            modifier = Modifier.padding(horizontal = 16.dp),
+//            TextAlign = TextAlign.Center
+            style = TextStyle(textAlign = TextAlign.Justify)
+        )
+        Text(
+            text = stringResource(R.string.paragraph),
+            modifier = Modifier.padding(all = 16.dp),
+            style = TextStyle(textAlign = TextAlign.Justify)
+        )
+
+
+    }
+}
+
+@Composable
+fun TaskCompleted(){
+    Column (
+        verticalArrangement = Arrangement.Center
+    ){  }
 }
 
 @Composable
@@ -73,7 +111,7 @@ fun GreetingImage(modifier: Modifier = Modifier, text: String = "Happy Birthday 
 @Composable
 fun GreetingText( modifier: Modifier = Modifier, text: String, from: String) {
     Column(
-        verticalArrangement = Arrangement.SpaceAround,
+        verticalArrangement = Arrangement.SpaceEvenly,
         modifier = modifier.padding(8.dp)
     ) {
         Text(
@@ -86,13 +124,15 @@ fun GreetingText( modifier: Modifier = Modifier, text: String, from: String) {
         )
         Text(
             text = from,
-            fontSize = 90.sp,
+            fontSize = 36.sp,
             modifier = Modifier
-                .padding(16.dp)
-                .align(alignment = Alignment.End),
+                .padding(all = 16.dp)
+                .align(alignment = Alignment.CenterHorizontally)
+                ,
             lineHeight = 100.sp,
-            textAlign = TextAlign.Center,
+//            textAlign = TextAlign.Center,
             color = Color.Blue
+
         )
     }
 }
