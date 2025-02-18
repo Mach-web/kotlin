@@ -21,6 +21,7 @@ import androidx.compose.runtime.movableContentOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
@@ -57,14 +58,18 @@ class MainActivity : ComponentActivity() {
 fun GreetingImage(modifier: Modifier = Modifier, text: String = "Happy Birthday MachTechie!!!", from: String){
     var image = painterResource(R.drawable.androidparty)
     Box(){
-        Image(image, null)
+        Image(image,
+            null,
+            contentScale = ContentScale.Crop,
+            alpha = 0.4f
+            )
         GreetingText(text = text, from = from, modifier = Modifier.fillMaxSize().padding(8.dp))
     }
 }
 @Composable
 fun GreetingText( modifier: Modifier = Modifier, text: String, from: String) {
     Column(
-        verticalArrangement = Arrangement.Center,
+        verticalArrangement = Arrangement.SpaceBetween,
         modifier = modifier.padding(8.dp)
     ) {
         Text(
