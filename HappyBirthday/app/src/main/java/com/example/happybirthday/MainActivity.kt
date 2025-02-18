@@ -5,6 +5,7 @@ import android.provider.CalendarContract.Colors
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
+import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
@@ -54,7 +55,7 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday MachTechie!!!", from: String) {
     var image = painterResource(R.drawable.androidparty)
-    print("Image: $image")
+    Image(painter = image, contentDescription = "Birthday Image")
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = modifier.padding(8.dp)
@@ -67,7 +68,7 @@ fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday 
             textAlign = TextAlign.Center
         )
         Text(
-            text = "from $image",
+            text = from,
             fontSize = 36.sp,
             modifier = Modifier.padding(16.dp).align(alignment = Alignment.End),
             lineHeight = 100.sp,
