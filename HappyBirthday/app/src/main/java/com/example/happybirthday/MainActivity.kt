@@ -23,6 +23,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -39,9 +40,10 @@ class MainActivity : ComponentActivity() {
                 Surface(modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GreetingImage(text = "Happy Birthday Mash",
+                    GreetingImage(text = stringResource(R.string.happy_birthday_text),
                     modifier = Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)),
-                        from = "from Vee!!!")
+                        from = stringResource(R.string.signature_text)
+                    )
                 }
 //                Scaffold(modifier = Modifier.fillMaxSize()) {
 //                    innerPadding -> HappyBirthday(
@@ -63,25 +65,28 @@ fun GreetingImage(modifier: Modifier = Modifier, text: String = "Happy Birthday 
             contentScale = ContentScale.Crop,
             alpha = 0.4f
             )
-        GreetingText(text = text, from = from, modifier = Modifier.fillMaxSize().padding(8.dp))
+        GreetingText(text = text, from = from, modifier = Modifier
+            .fillMaxSize()
+            .padding(8.dp))
     }
 }
 @Composable
 fun GreetingText( modifier: Modifier = Modifier, text: String, from: String) {
     Column(
-        verticalArrangement = Arrangement.SpaceBetween,
+        verticalArrangement = Arrangement.SpaceAround,
         modifier = modifier.padding(8.dp)
     ) {
         Text(
             text = text,
             modifier = Modifier.padding(8.dp),
-            fontSize = 100.sp,
+            fontSize = 90.sp,
             lineHeight = 100.sp,
-            textAlign = TextAlign.Center
+            textAlign = TextAlign.Center,
+
         )
         Text(
             text = from,
-            fontSize = 36.sp,
+            fontSize = 90.sp,
             modifier = Modifier
                 .padding(16.dp)
                 .align(alignment = Alignment.End),
