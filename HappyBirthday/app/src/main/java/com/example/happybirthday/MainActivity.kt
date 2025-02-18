@@ -1,7 +1,7 @@
 package com.example.happybirthday
 
-import android.graphics.Color
 import android.os.Bundle
+import android.provider.CalendarContract.Colors
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
@@ -18,6 +18,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.movableContentOf
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.Dp
@@ -36,7 +38,7 @@ class MainActivity : ComponentActivity() {
                 ) {
                     GreetingText(text = "Happy Birthday Mash",
                     modifier = Modifier.padding(top = Dp(35.0f), start = Dp(10.0f)),
-                        from = "from Vee")
+                        from = "from Vee!!!")
                 }
 //                Scaffold(modifier = Modifier.fillMaxSize()) {
 //                    innerPadding -> HappyBirthday(
@@ -51,6 +53,8 @@ class MainActivity : ComponentActivity() {
 
 @Composable
 fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday MachTechie!!!", from: String) {
+    var image = painterResource(R.drawable.androidparty)
+    print("Image: $image")
     Column(
         verticalArrangement = Arrangement.Center,
         modifier = modifier.padding(8.dp)
@@ -63,12 +67,12 @@ fun GreetingText( modifier: Modifier = Modifier, text: String = "Happy Birthday 
             textAlign = TextAlign.Center
         )
         Text(
-            text = from,
+            text = "from $image",
             fontSize = 36.sp,
             modifier = Modifier.padding(16.dp).align(alignment = Alignment.End),
             lineHeight = 100.sp,
             textAlign = TextAlign.Center,
-
+            color = Color.Blue
         )
     }
 }
