@@ -10,6 +10,7 @@ import androidx.compose.foundation.border
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
@@ -17,6 +18,10 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.material.icons.Icons
+import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Share
+import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -60,7 +65,9 @@ fun BusinessCard(modifier: Modifier = Modifier) {
     Column(modifier = modifier.fillMaxSize()) {
         var image = painterResource(R.drawable.android_logo)
         Column(
-            modifier = Modifier.weight(1.5f).fillMaxWidth(),
+            modifier = Modifier
+                .weight(1.5f)
+                .fillMaxWidth(),
             verticalArrangement = Arrangement.Bottom,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
@@ -96,9 +103,32 @@ fun BusinessCard(modifier: Modifier = Modifier) {
             )
 
         }
-        Column (modifier = Modifier.weight(1f)){
-
-            Text("+11 (123) 444 555 666")
+        Column(
+            modifier = Modifier
+                .weight(1f)
+                .padding(bottom = 16.dp)
+                .fillMaxWidth(),
+            verticalArrangement = Arrangement.Bottom,
+            horizontalAlignment = Alignment.CenterHorizontally
+        ) {
+            Row {
+                Icon(Icons.Default.Call, contentDescription = "Call", tint = Color(1, 121, 21))
+                Text(
+                    "+11 (123) 444 555 666",
+                    color = Color.Black,
+                    fontSize = 20.sp,
+                    modifier = Modifier.padding(start = 15.dp)
+                )
+            }
+            Row {
+                Icon(Icons.Default.Share, contentDescription = "Share", tint = Color(1, 121, 21))
+                Text(
+                    "@AndroidDev",
+                    color = Color.Black,
+                    fontSize = 20.sp,
+                    modifier = Modifier.padding(start = 15.dp)
+                )
+            }
         }
     }
 }
