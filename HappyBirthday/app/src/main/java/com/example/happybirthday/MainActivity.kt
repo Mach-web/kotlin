@@ -107,12 +107,11 @@ fun ComposeQuadrant(modifier: Modifier){
 }
 
 @Composable
-fun Quadrant(title: String, description: String, color: Color, modifier: Modifier){
+private fun Quadrant(title: String, description: String, color: Color, modifier: Modifier){
     Column (
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally,
         modifier = modifier.fillMaxSize().background(color = color).padding(all = 8.dp)
-
     ){
         Text(
             text = title,
