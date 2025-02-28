@@ -112,19 +112,36 @@ fun BusinessCard(modifier: Modifier = Modifier) {
             verticalAlignment = Alignment.Bottom,
             horizontalArrangement = Arrangement.Center
         ) {
-            Column {
-                Icon(Icons.Default.Call, contentDescription = "Call", tint = Color(1, 121, 21))
-
-                Icon(Icons.Default.Share, contentDescription = "Share", tint = Color(1, 121, 21))
-                Icon(Icons.Default.Email, contentDescription = "Email", tint = Color(1, 121, 21))
-
+            Column(
+                verticalArrangement = Arrangement.SpaceBetween
+            ) {
+                Icon(
+                    Icons.Default.Call,
+                    contentDescription = "Call",
+                    tint = Color(1, 121, 21),
+                    modifier = Modifier.size(20.dp)
+                )
+                Icon(
+                    Icons.Default.Share,
+                    contentDescription = "Share",
+                    tint = Color(1, 121, 21),
+                    modifier = Modifier.size(20.dp)
+                )
+                Icon(
+                    Icons.Default.Email,
+                    contentDescription = "Email",
+                    tint = Color(1, 121, 21),
+                    modifier = Modifier.size(20.dp)
+                )
             }
-            Column {
+            Column(
+                verticalArrangement = Arrangement.SpaceEvenly,
+            ) {
                 Text(
                     "+11 (123) 444 555 666",
                     color = Color.Black,
-                    fontSize = 20.sp,
-                    modifier = Modifier.padding(start = 18.dp)
+                    fontSize = 18.sp,
+                    modifier = Modifier.padding(start = 15.dp)
                 )
                 Text(
                     "@AndroidDev",
