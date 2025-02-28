@@ -28,7 +28,9 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.graphics.Shape
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
@@ -73,21 +75,22 @@ fun BusinessCard(modifier: Modifier = Modifier) {
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
 //
-            Box(
-                modifier = Modifier
-                    .size(140.dp) // Border will be outside the image
-                    .border(
-                        width = 10.dp,
-                        color = Color(16, 43, 50),
-                    ), // Border color same as background
-                contentAlignment = Alignment.Center
-            ) {
+//            Box(
+//                modifier = Modifier
+//                    .size(140.dp) // Border will be outside the image
+//                    .border(
+//                        width = 10.dp,
+//                        color = Color(16, 43, 50),
+//                    ), // Border color same as background
+//                contentAlignment = Alignment.Center
+//            ) {
                 Image(
                     image, "Android Logo", modifier = Modifier
-                        .size(120.dp) // Ensures the image itself remains the original size
+                        .size(150.dp) // Ensures the image itself remains the original size
                         .background(color = Color(16, 43, 50))
+                        .padding(15.dp)
                 )
-            }
+//            }
 
             Text(
                 "Jennifer Doe",
