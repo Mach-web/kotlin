@@ -20,6 +20,7 @@ import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Call
+import androidx.compose.material.icons.filled.Email
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
@@ -103,29 +104,38 @@ fun BusinessCard(modifier: Modifier = Modifier) {
             )
 
         }
-        Column(
+        Row(
             modifier = Modifier
                 .weight(1f)
                 .padding(bottom = 16.dp)
                 .fillMaxWidth(),
-            verticalArrangement = Arrangement.Bottom,
-            horizontalAlignment = Alignment.CenterHorizontally
+            verticalAlignment = Alignment.Bottom,
+            horizontalArrangement = Arrangement.Center
         ) {
-            Row {
+            Column {
                 Icon(Icons.Default.Call, contentDescription = "Call", tint = Color(1, 121, 21))
+
+                Icon(Icons.Default.Share, contentDescription = "Share", tint = Color(1, 121, 21))
+                Icon(Icons.Default.Email, contentDescription = "Email", tint = Color(1, 121, 21))
+
+            }
+            Column {
                 Text(
                     "+11 (123) 444 555 666",
                     color = Color.Black,
                     fontSize = 20.sp,
-                    modifier = Modifier.padding(start = 15.dp)
+                    modifier = Modifier.padding(start = 18.dp)
                 )
-            }
-            Row {
-                Icon(Icons.Default.Share, contentDescription = "Share", tint = Color(1, 121, 21))
                 Text(
                     "@AndroidDev",
                     color = Color.Black,
-                    fontSize = 20.sp,
+                    fontSize = 18.sp,
+                    modifier = Modifier.padding(start = 15.dp)
+                )
+                Text(
+                    "jen.doe@android.com",
+                    color = Color.Black,
+                    fontSize = 18.sp,
                     modifier = Modifier.padding(start = 15.dp)
                 )
             }
