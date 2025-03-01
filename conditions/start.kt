@@ -1,7 +1,7 @@
 // kotlinc start.kt -include-runtime -d start.jar
 // java -jar start.jar
 fun main() {
-    val trafficLightColor = "MAroon"
+    val trafficLightColor = "Amber"
 
     // if (trafficLightColor == "Red") {
     //     println("Stop")
@@ -12,10 +12,17 @@ fun main() {
     // } else {
     //     println("Invalid Color")
     // }
-    when(trafficLightColor){
-        "Red" -> println("Stop")
-        "Yellow" -> println("Slow")
-        "Green" -> println("Go")
-        else -> println("Invalid Color")
+    var msg = when(trafficLightColor){
+        "Red" -> "Stop"
+        "Yellow", "Amber" -> "Slow"
+        "Green" -> "Go"
+        else -> "Invalid Color"
     }
+    println(msg)
+    var message = 
+    if(trafficLightColor == "Red") "Stop"
+    else if(trafficLightColor == "Yellow" || trafficLightColor == "Amber") "Slow"
+    else if(trafficLightColor == "Green") "Go"
+    else "Invalid Color"
+    println(message)
 }

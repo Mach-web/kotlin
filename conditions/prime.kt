@@ -1,12 +1,13 @@
 fun main(){
-    var x:Int = 6
+    var x: Any = 14
      when(x){
         2, 3, 5, 7 -> println("x is a prime number between 1 and 10")
-        in 1..10 -> print("x is not a prime number")
+        in 1..10 -> println("x is not a prime number")
+        is Int -> println("x is an integer but not between 1 and 10")
         else -> println("x is not a prime number between 1 and 10")
      }
-     println()
-     checkType(x + 2.26f)
+     
+     checkType(x)
 }
 
 fun checkType(x: Any){
